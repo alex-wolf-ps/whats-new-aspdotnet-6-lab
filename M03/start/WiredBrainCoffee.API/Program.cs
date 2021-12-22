@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 
 var app = builder.Build();
 
@@ -19,7 +20,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
+
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
