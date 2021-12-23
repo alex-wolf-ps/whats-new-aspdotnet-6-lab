@@ -9,11 +9,14 @@ builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
+
 
 builder.Services.AddHttpLogging(httpLogging =>
 {
     httpLogging.LoggingFields = HttpLoggingFields.All;
 });
+
 
 var app = builder.Build();
 
@@ -32,6 +35,12 @@ app.Use(async (context, next) =>
 });
 
 app.UseHttpLogging();
+
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

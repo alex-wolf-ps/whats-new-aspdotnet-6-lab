@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 
 builder.Services.AddHttpLogging(httpLogging =>
 {
@@ -30,8 +31,14 @@ app.Use(async (context, next) =>
     context.Response.Headers.XPoweredBy = "ASPNETCORE 6.0";
     await next.Invoke(context);
 });
-
 app.UseHttpLogging();
+
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
