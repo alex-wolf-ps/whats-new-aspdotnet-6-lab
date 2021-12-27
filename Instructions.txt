@@ -1,4 +1,8 @@
-The labs workspace includes folders for the start and end state of relevant modules in the course.
+The labs workspace includes folders for the start and end state of each relevant module (03-05) in the course.
+
+Note: 
+Module 01 is simply the overview video and does not include any exercises.
+Module 02 contains a few demos, but they are not relevant to this workspace environment.  Instead, they focus on concepts like upgrading existing projects to .NET 6 or setting up the project on your local computer.
 
 In the terminal window at the bottom of the lab workspace you can use various commands to navigate the folders and start or stop the apps.
 
@@ -7,7 +11,7 @@ dir: View the contents of the current directory
 cd: Change directory to navigate folders
 dotnet run --project <chosen-project>: Can be used to start the app
 
-The UI and API projects both need to be running for the app to start properly.  An example workflow can be seen below:
+The UI and API projects both need to be running for the app to start properly.  An example workflow can be seen below.
 
 In the terminal window:
 cd M03/start
