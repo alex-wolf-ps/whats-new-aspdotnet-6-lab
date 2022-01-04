@@ -61,7 +61,7 @@ namespace WiredBrainCoffee.Api.Controllers
                     Slug = "pumpkin-bread",
                     ShortDescription = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
                     Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
-                    ImageFile = "images/menu/pumpkinbread.png",
+                    ImageFile = "images/menu/PumpkinBread.png",
                     Price = 4,
                     Category = "Food"
                 },
